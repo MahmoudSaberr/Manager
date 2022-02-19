@@ -1,0 +1,234 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:background="@color/logo_sky"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".activities.AddTaskActivity">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/constraintLayout"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:background="@color/white"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHeight_percent=".30"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0">
+
+        <ImageView
+            android:id="@+id/add_task_view"
+            android:layout_width="122dp"
+            android:layout_height="118dp"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="10dp"
+            android:background="@drawable/shape_circle_stroke"
+            android:padding="15dp"
+            android:src="@drawable/logo"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.498"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.164" />
+
+        <TextView
+            android:id="@+id/add_task_label"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:padding="10dp"
+            android:text="Add details of your task"
+            android:textColor="@color/sky_blue"
+            android:textSize="18sp"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.497"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/add_task_view" />
+
+        <View
+            android:id="@+id/view"
+            android:layout_width="60dp"
+            android:layout_height="50dp"
+            android:layout_marginTop="16dp"
+            android:background="@drawable/shape_left_panel"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <ImageView
+            android:id="@+id/add_task_back"
+            android:layout_width="40dp"
+            android:layout_height="50dp"
+            android:src="@drawable/ic_back_white"
+            app:layout_constraintBottom_toBottomOf="@+id/view"
+            app:layout_constraintEnd_toEndOf="@+id/view"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/view" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <!--Scroll view-->
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHeight_percent=".75"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintVertical_bias="1.0">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@drawable/custom_top_corner"
+            android:backgroundTint="@color/logo_sky"
+            android:paddingTop="60dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent">
+
+            <com.google.android.material.card.MaterialCardView
+                android:id="@+id/login_box_ll"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:cardCornerRadius="20dp"
+                app:cardElevation="2dp"
+                app:strokeColor="@color/logo_sky"
+                app:strokeWidth="1dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent">
+
+                <LinearLayout
+                    android:layout_width="350dp"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:padding="20dp"
+                    tools:targetApi="lollipop">
+                    <com.google.android.material.textfield.TextInputLayout
+                        android:id="@+id/add_task_title_input_layout"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        app:startIconDrawable="@drawable/ic_title_gray"
+                        app:startIconTint="@color/logo_sky"
+                        app:counterMaxLength="20"
+                        app:counterTextColor="@color/logo_sky"
+                        app:counterEnabled="true"
+                        app:helperText="@string/required"
+                        app:helperTextTextColor="@color/design_default_color_error"
+                        app:endIconMode="clear_text"
+                        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                        android:hint="@string/title">
+                        <com.google.android.material.textfield.TextInputEditText
+                            android:id="@+id/add_task_title_et"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:inputType="textPersonName|textCapWords"
+                            android:maxLength="21"/>
+                    </com.google.android.material.textfield.TextInputLayout>
+
+                    <com.google.android.material.textfield.TextInputLayout
+                        android:id="@+id/add_task_Description_input_layout"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        app:startIconDrawable="@drawable/ic_description_gray"
+                        app:startIconTint="@color/logo_sky"
+                        app:endIconMode="clear_text"
+                        app:counterMaxLength="250"
+                        app:counterTextColor="@color/logo_sky"
+                        app:counterEnabled="true"
+                        app:helperText="@string/required"
+                        app:helperTextTextColor="@color/design_default_color_error"
+                        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                        android:hint="@string/description">
+                        <com.google.android.material.textfield.TextInputEditText
+                            android:id="@+id/add_task_description_et"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:inputType="textMultiLine|textCapSentences"
+                            android:maxLength="251"/>
+                    </com.google.android.material.textfield.TextInputLayout>
+
+                    <TextView
+                        android:id="@+id/add_task_day_et"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="10dp"
+                        android:paddingHorizontal="12dp"
+                        android:paddingVertical="16dp"
+                        android:drawablePadding="16dp"
+                        android:drawableStart="@drawable/ic_day_gray"
+                        android:drawableLeft="@drawable/ic_day_gray"
+                        android:drawableRight="@drawable/ic_down_white"
+                        android:drawableEnd="@drawable/ic_down_white"
+                        android:drawableTint="@color/logo_sky"
+                        android:background="@drawable/shape_text_view_gray"
+                        android:hint="@string/day"
+                        android:textColorHint="#7A7979"
+                        android:textSize="16sp"
+                        android:textColor="@color/black"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/task_description_tv"
+                        tools:targetApi="m" />
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/required"
+                        android:textColor="@color/design_default_color_error"
+                        android:textSize="12dp"
+                        android:layout_marginLeft="16dp"
+                        android:layout_marginStart="16dp" />
+
+                    <TextView
+                        android:id="@+id/add_task_select_time_et"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="10dp"
+                        android:paddingHorizontal="12dp"
+                        android:paddingVertical="16dp"
+                        android:drawablePadding="16dp"
+                        android:drawableStart="@drawable/ic_time_white"
+                        android:drawableLeft="@drawable/ic_time_white"
+                        android:drawableRight="@drawable/ic_add_gray"
+                        android:drawableEnd="@drawable/ic_add_gray"
+                        android:drawableTint="@color/logo_sky"
+                        android:background="@drawable/shape_text_view_gray"
+                        android:hint="@string/time"
+                        android:textColorHint="#7A7979"
+                        android:textSize="16sp"
+                        android:textColor="@color/black"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/task_description_tv"
+                        tools:targetApi="m" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/required"
+                        android:textColor="@color/design_default_color_error"
+                        android:textSize="12dp"
+                        android:layout_marginLeft="16dp"
+                        android:layout_marginStart="16dp" />
+
+                    <androidx.appcompat.widget.AppCompatButton
+                        android:id="@+id/add_task_submit"
+                        android:layout_width="150dp"
+                        android:layout_height="50dp"
+                        android:layout_marginHorizontal="83dp"
+                        android:layout_marginTop="25dp"
+                        android:background="@drawable/shape_login_button"
+                        android:text="Add Task"
+                        android:textColor="@color/white"/>
+
+                </LinearLayout>
+
+            </com.google.android.material.card.MaterialCardView>
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </ScrollView>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/f_task_layout"
+    android:background="#F3F3F3"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    tools:context=".activities.AddTaskActivity">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+        <!--Search-->
+        <EditText
+            android:id="@+id/f_task_search_et"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="10dp"
+            android:layout_marginTop="10dp"
+            android:drawableStart="@drawable/ic_search_gray"
+            android:drawableLeft="@drawable/ic_search_gray"
+            android:drawableTint="@color/purple_500"
+            android:drawablePadding="10dp"
+            android:padding="10dp"
+            android:background="@color/white"
+            android:hint="Search"
+            android:textColorHint="@color/gray01"
+            android:textColor="@color/black"
+            android:layout_weight="12" />
+
+        <ImageButton
+            android:id="@+id/f_task_change_view"
+            android:layout_width="45dp"
+            android:layout_height="45dp"
+            android:layout_marginTop="4dp"
+            android:layout_marginRight="10dp"
+            android:layout_marginLeft="5dp"
+            android:src="@drawable/ic_grid_view_sky"
+            android:background="@drawable/shape_circle"
+            android:layout_gravity="center"
+            android:layout_marginEnd="10dp"
+            android:layout_marginStart="5dp" />
+
+    </LinearLayout>
+
+    <!--Tasks-->
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/f_task_tasks_rv"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_margin="5dp"
+        tools:listitem="@layout/row_task_user"
+        app:stackFromEnd="true"
+        app:reverseLayout="true"
+        app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"/>
+
+</LinearLayout>
