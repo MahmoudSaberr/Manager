@@ -35,6 +35,7 @@ import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
 import java.util.ArrayList;
+import java.util.Collections;
 
 import it.xabaras.android.recyclerview.swipedecorator.RecyclerViewSwipeDecorator;
 
@@ -129,6 +130,10 @@ public class TaskUserFragment extends Fragment {
 
         ItemTouchHelper itemTouchHelper =new ItemTouchHelper(edit);
         itemTouchHelper.attachToRecyclerView(binding.fTaskTasksRv);
+
+        ItemTouchHelper itemHelper = new ItemTouchHelper(simpleCallback);
+        itemHelper.attachToRecyclerView(binding.fTaskTasksRv);
+
 
         return  binding.getRoot();
     }
@@ -301,6 +306,24 @@ public class TaskUserFragment extends Fragment {
                     .decorate();
 
             super.onChildDraw(c, recyclerView, viewHolder, dX, dY, actionState, isCurrentlyActive);
+        }
+    };
+
+    ItemTouchHelper.SimpleCallback simpleCallback = new ItemTouchHelper.SimpleCallback(ItemTouchHelper.UP | ItemTouchHelper.DOWN | ItemTouchHelper.START | ItemTouchHelper.END, 0) {
+        @Override
+        public boolean onMove(@NonNull RecyclerView recyclerView, @NonNull RecyclerView.ViewHolder viewHolder, @NonNull RecyclerView.ViewHolder target) {
+
+            int fromPosition = viewHolder.getAdapterPosition();
+            int toPosition = target.getAdapterPosition();
+
+            Collections.swap(taskArrayList, fromPosition, toPosition);
+            recyclerView.getAdapter().notifyItemMoved(fromPosition, toPosition);
+
+            return false;
+        }
+
+        @Override
+        public void onSwiped(@NonNull RecyclerView.ViewHolder viewHolder, int direction) {
         }
     };
 }
